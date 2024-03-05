@@ -1,71 +1,73 @@
-import tkinter as tk
-import math
+def print_menu():
+    print("\n")
+    print("|==========================================|")
+    print("|          CALCULADORA CIENTÍFICA          |")
+    print("|==========================================|")
+    print("|    [ON]    |    [OFF]    |     [Mais]    |")
+    print("|==========================================|")
+    print("|  [1] Soma           |     [2] Subtração  |")
+    print("|  [3] Multiplicação  |     [4] Divisão    |")
+    print("|  [5] Fatorial       |     [6] Sair       |")
+    print("|==========================================|")
+    print("\n")
 
 
-class Calculadora:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Calculadora")
+def add(x, y):
+    return x + y
 
-        # Entrada de texto
-        self.entry = tk.Entry(root, width=20, font=(
-            'Arial', 20), justify="right")
-        self.entry.grid(row=0, column=0, columnspan=4)
 
-        # Botões
-        buttons = [
-            ('√x', 1, 0), ('x²', 1, 1), ('ce', 1, 2), ('c', 1, 3),
-            ('7', 2, 0), ('8', 2, 1), ('9', 2, 2), ('/', 2, 3),
-            ('4', 3, 0), ('5', 3, 1), ('6', 3, 2), ('*', 3, 3),
-            ('1', 4, 0), ('2', 4, 1), ('3', 4, 2), ('-', 4, 3),
-            ('0', 5, 0), ('.', 5, 1), ('=', 5, 2), ('+', 5, 3),
-        ]
+def subtract(x, y):
+    return x - y
 
-        for (text, row, column) in buttons:
-            button = tk.Button(root, text=text, font=(
-                'Arial', 20), command=lambda t=text: self.add_to_entry(t))
-            button.grid(row=row, column=column, padx=5, pady=5, sticky="nsew")
 
-    def add_to_entry(self, value):
-        if value == '=':
-            current = self.entry.get()
-            try:
-                result = eval(current)
-                self.entry.delete(0, tk.END)
-                self.entry.insert(tk.END, str(result))
-            except:
-                self.entry.delete(0, tk.END)
-                self.entry.insert(tk.END, "Erro")
-        elif value == 'c':  # Limpar a entrada
-            self.entry.delete(0, tk.END)
-        elif value == 'ce':  # Limpar a entrada atual
-            current = self.entry.get()
-            self.entry.delete(0, tk.END)
-            # Remove o último caractere
-            self.entry.insert(tk.END, current[:-1])
-        elif value == 'x²':  # Eleva ao quadrado
-            current = self.entry.get()
-            try:
-                result = eval(current)**2
-                self.entry.delete(0, tk.END)
-                self.entry.insert(tk.END, str(result))
-            except:
-                self.entry.delete(0, tk.END)
-                self.entry.insert(tk.END, "Erro")
-        elif value == '√x':  # Raiz quadrada
-            current = self.entry.get()
-            try:
-                result = math.sqrt(eval(current))
-                self.entry.delete(0, tk.END)
-                self.entry.insert(tk.END, str(result))
-            except:
-                self.entry.delete(0, tk.END)
-                self.entry.insert(tk.END, "Erro")
+def multiply(x, y):
+    return x * y
+
+
+def divide(x, y):
+    if y == 0:
+        return "Erro: Divisão por zero!"
+    return x / y
+
+
+def calculate_factorial(num):
+    if num < 0:
+        return "Erro: Fatorial de número negativo não está definido!"
+    elif num == 0:
+        return 1
+    else:
+        factorial = 1
+        for i in range(1, num + 1):
+            factorial *= i
+        return factorial
+
+
+def main():
+    while True:
+        print_menu()
+        choice = input("Escolha uma opção: ")
+
+        if choice == '6':
+            print("Saindo da calculadora.")
+            break
+
+        if choice in ('1', '2', '3', '4'):
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+
+            if choice == '1':
+                print("Resultado:", add(num1, num2))
+            elif choice == '2':
+                print("Resultado:", subtract(num1, num2))
+            elif choice == '3':
+                print("Resultado:", multiply(num1, num2))
+            elif choice == '4':
+                print("Resultado:", divide(num1, num2))
+        elif choice == '5':
+            num = int(input("Digite um número para calcular o fatorial: "))
+            print("Resultado:", calculate_factorial(num))
         else:
-            self.entry.insert(tk.END, value)
+            print("Opção inválida!")
 
 
-# Criar e iniciar a aplicação
-root = tk.Tk()
-app = Calculadora(root)
-root.mainloop()
+main()
