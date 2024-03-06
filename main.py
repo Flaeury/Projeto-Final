@@ -7,7 +7,7 @@ class Calculadora:
         self.root = root
         self.root.title("Calculadora")
 
-        # Entrada de texto
+        #
         self.entry = tk.Entry(root, width=20, font=(
             'Arial', 20), justify="right")
         self.entry.grid(row=0, column=0, columnspan=4)
