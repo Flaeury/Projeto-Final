@@ -8,7 +8,6 @@ def funcao_quadratica(x, a, b, c):
 
 def calcular_raizes(a, b, c):
     delta = b**2 - 4*a*c
-
     if delta > 0:
         raiz_delta = delta ** 0.5
         raiz1 = (-b + raiz_delta) / (2*a)
@@ -25,12 +24,11 @@ def plot_or_solve():
     a = float(input("Digite o valor de a: "))
     b = float(input("Digite o valor de b: "))
     c = float(input("Digite o valor de c: "))
-
     choice = input(
         "Deseja plotar o gráfico (P) ou encontrar as raízes da função (R)? ")
 
     if choice == 'P' or choice == 'p':
-        x_values = np.linspace(-3, 3, 5)
+        x_values = np.linspace(-30, 30, 10)
         y_values = funcao_quadratica(x_values, a, b, c)
 
         plt.plot(x_values, y_values, label=f'{a}x² + {b}x + {c}')
@@ -40,7 +38,7 @@ def plot_or_solve():
         plt.legend()
         plt.grid(True)
         plt.show()
-    elif choice == 'R' or choice == 'r':
+    elif choice in ('R', 'r'):
         raizes = calcular_raizes(a, b, c)
         print(f"Raízes da função quadrática: {raizes}")
     else:
