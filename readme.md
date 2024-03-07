@@ -1,5 +1,5 @@
 # Calculadora Científica em Python
-Esta é uma calculadora científica implementada em Python utilizando a biblioteca Tkinter para criar uma interface gráfica simples e intuitiva. O objetivo deste projeto é fornecer uma ferramenta funcional para realizar operações matemáticas básicas e avançadas, como soma, subtração, multiplicação, divisão, cálculos trigonométricos e outras funções científicas.
+Esta é uma calculadora científica implementada em Python utilizando a biblioteca matplotlib para criar uma interface gráfica simples e intuitiva. O objetivo deste projeto é fornecer uma ferramenta funcional para realizar operações matemáticas básicas e avançadas, como soma, subtração, multiplicação, divisão e outras funções científicas.
 
 ## Funcionalidades Principais
 Operações Básicas: A calculadora suporta as quatro operações básicas da matemática: adição, subtração, multiplicação e divisão. Os números são inseridos através de botões na interface e os resultados são exibidos em tempo real.
