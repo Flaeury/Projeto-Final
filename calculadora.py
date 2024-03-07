@@ -50,7 +50,7 @@ def init():
           |  2: Subtração  |
           |  3: Multip.    |
           |  4: Divisão    |
-          |  5: Sair       |
+          |  5: Voltar     |
           |                |
           |________________|
           """
