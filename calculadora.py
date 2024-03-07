@@ -46,10 +46,11 @@ def init():
           |   Inicie uma   |
           |    Operação    |
           |                |
-          |  1: Soma    |
-          |  2:     |
-          |  3: Trigonom.  |
-          |  4: Sair       |
+          |  1: Soma       |
+          |  2: Subtração  |
+          |  3: Multip.    |
+          |  4: Divisão    |
+          |  5: Sair       |
           |                |
           |________________|
           """
